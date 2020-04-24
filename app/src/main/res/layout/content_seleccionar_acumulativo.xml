@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SeleccionarAcumulativo"
+    tools:showIn="@layout/activity_seleccionar_acumulativo">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:strokeWidth="1dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/secondaryLightColor"
+        app:cardElevation="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+        <Spinner
+            android:id="@+id/sSecciones2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:dropDownWidth="match_parent"
+            android:minWidth="@android:dimen/thumbnail_width"
+            android:spinnerMode="dialog"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="43dp" />
+
+
+        <Spinner
+            android:id="@+id/sAsignatura2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:minWidth="@android:dimen/thumbnail_width"
+            android:spinnerMode="dialog" />
+
+
+        <Spinner
+            android:id="@+id/sTipoAcumulativo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:spinnerMode="dialog"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="3dp"
+                style="@style/Widget.MaterialComponents.TextView"
+                android:layout_marginRight="5dp"
+                android:text="Parcial"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/sParcial"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descripcion"
+                app:endIconDrawable="@drawable/ic_menu_manage"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:paddingLeft="5dp" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="77dp"
+                android:ems="10"
+                android:inputType="textCapWords"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Valor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:paddingLeft="5dp" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

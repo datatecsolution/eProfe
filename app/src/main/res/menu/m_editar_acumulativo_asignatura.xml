@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/it_select_alumno"
+        android:title="Selecionar Alumno"
+        android:icon="@drawable/avatar_1"
+        app:showAsAction="always" />
+
+
+</menu>

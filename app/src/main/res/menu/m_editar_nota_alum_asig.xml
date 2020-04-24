@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/left"
+        android:icon="@drawable/v_next"
+        android:rotation="90"
+        android:title="anterio"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/next"
+        android:icon="@drawable/v_next"
+        android:title="siguiente"
+        app:showAsAction="always" />
+
+</menu>

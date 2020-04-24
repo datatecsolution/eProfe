@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/it_edit_descripcion"
+        android:title="Cambiar Descripcion"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/it_edit_tipo_acumulativo"
+        android:title="Cambiar Tipo Acumulativo"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/it_edit_parcial"
+        android:title="Cambiar Parcial"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/it_edit_valor"
+        android:title="Cambiar valor"
+        app:showAsAction="collapseActionView" />
+
+</menu>

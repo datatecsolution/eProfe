@@ -1,0 +1,49 @@
+<resources>
+    <integer name="swing_anim_time">1000</integer>
+    <string name="app_name">Asistencia</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_main3">Crear Asistencia</string>
+    <string name="title_activity_pasar_lista_main">Pasar Asistencia</string>
+    <string name="title_activity_crear_asistencia">Crear Asistencia</string>
+    <string name="title_activity_list_asistencia">Asistencias</string>
+    <string name="title_activity_editar_asistencia">Editar Asistencia</string>
+    <string name="title_activity_acumulativo_main">AcumulativoMain</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_seleccionar_acumulativo">Crear acumultivo</string>
+    <string name="title_activity_crear_acumulativo">CrearAcumulativo</string>
+    <string name="title_activity_lista_acumulativos">Acumultativos</string>
+    <string name="title_activity_editar_acumulativo">Editar Acumulativo</string>
+    <string name="title_activity_menu_principal">eProf</string>
+    <string name="title_activity_select_asignatura_acumulativo">Docentes Asignaturas</string>
+    <string name="title_activity_editar_acumulativo_asignatura">Editar Acumulativo Asignatura</string>
+    <string name="title_activity_datos_docente">Datos Docente</string>
+    <string name="title_activity_otro">Otro</string>
+    <string name="title_activity_sincronizar_sace">Sincronizar Sace</string>
+    <string name="title_activity_select_seccion_alumnos">Gestionar Alumnos</string>
+    <string name="title_activity_editar_alumno">Editar Alumno</string>
+    <string name="title_activity_s_acumulativos_asignaturas">sAcumulativosAsignaturas</string>
+    <string name="title_activity_seccion_asignatura">Crear Acumulativo</string>
+    <string name="title_activity_editar_notas_alumno_asignatura_p">Editar Notas Asignaturas
+        Parcial
+    </string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <integer name="add_server">0</integer>
+    <integer name="sincronizado">1</integer>
+    <integer name="update_server">2</integer>
+    <integer name="delete_server">2</integer>
+</resources>

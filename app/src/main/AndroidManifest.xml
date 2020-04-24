@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="net.profeinformatica.eprofe">
+
+    <dist:module dist:instant="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="false"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.eProf"
+        android:usesCleartextTraffic="true"
+        tools:ignore="HardcodedDebugMode">
+
+
+        <activity
+            android:name=".EditarNotasAlumnoAsignaturaP"
+            android:label="@string/title_activity_editar_notas_alumno_asignatura_p"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
+
+        <activity
+            android:name=".EditarAlumno"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_editar_alumno"
+            android:theme="@style/Theme.eProf.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SelectSeccionAlumnos"
+            android:label="@string/title_activity_select_seccion_alumnos"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".SelectSeccionAsignatura"
+            android:label="@string/title_activity_seccion_asignatura"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".SincronizarSace"
+            android:label="@string/title_activity_sincronizar_sace"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".SeleccionarAsistencia"
+            android:label="@string/title_activity_main3"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".CrearAsistencia"
+            android:label="@string/title_activity_crear_asistencia"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".ListAsistencia"
+            android:label="@string/title_activity_list_asistencia"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".EditarAsistencia"
+            android:label="@string/title_activity_editar_asistencia"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".SeleccionarAcumulativo"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_seleccionar_acumulativo"
+            android:theme="@style/Theme.eProf.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".CrearAcumulativo"
+            android:label="@string/title_activity_crear_acumulativo"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".ListaAcumulativos"
+            android:label="@string/title_activity_lista_acumulativos"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".EditarAcumulativo"
+            android:label="@string/title_activity_editar_acumulativo"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".MenuPrincipal"
+            android:label="@string/title_activity_menu_principal"
+            android:theme="@style/Theme.eProf.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectAsignaturaAcumulativo"
+            android:label="@string/title_activity_select_asignatura_acumulativo"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".EditarAcumulativoAsignatura"
+            android:label="@string/title_activity_editar_acumulativo_asignatura"
+            android:theme="@style/Theme.eProf.NoActionBar" />
+        <activity
+            android:name=".DatosDocente"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_datos_docente"
+            android:theme="@style/Theme.eProf.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+    </application>
+
+</manifest>
