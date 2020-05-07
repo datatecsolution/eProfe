@@ -8,6 +8,8 @@ import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Alumno;
 import net.profeinformatica.eprofe.modelo.Matricula;
 import net.profeinformatica.eprofe.modelo.Seccion;
+import net.profeinformatica.eprofe.modeloDao.MatriculaDao;
+import net.profeinformatica.eprofe.modeloDao.ModeloDaoBasic;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiService;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiUtils;
 
@@ -284,6 +286,52 @@ public class AlumnoDao extends ModeloDaoBasic {
     @Override
     public int getGeneratedKeys() {
         return 0;
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+        String sql="INSERT INTO " +
+                            " alumnos (id, rne, username, nombre, apellido, genero, telefono, email, password, sincronizar_servidor, remember_token, created_at, updated_at) " +
+                    " VALUES " +
+                        " (19, '0108200500541', 'RCORNEJO', 'REYNA YAJAIRA', 'CORNEJO ZELAYA', 1, '0', 'RCORNEJO', '0108200500541', 1, null, null, null), " +
+                        " (87, '0105200400109', '0105200400109', 'Ashlye Aracely', 'Castro Merlo', 1, '0', 'NA', '$2y$10$Sf8p4XEevjFEzq0i56mluONl5mxw7/TY2P60K0PXQYh77Fsy.8NvG', 1, null, '2019-02-19 03:43:35', '2019-02-19 03:43:35'), " +
+                        " (88, '0103200500048', '0103200500048', 'Diana Lisbeth', 'Sabillon Roman', 1, '0', 'NA', '$2y$10$sEzkvYlvulyRWm.Xd0hS..yxqekdjKbTBBkdFjWSbDmXNzYVm7ZOy', 1, null, '2019-02-19 03:43:35', '2019-02-19 03:43:35'), " +
+                        " (89, '0105200300240', '0105200300240', 'Digna Nayely', 'Ayala Gomez', 1, '0', 'NA', '$2y$10$XWkWynmbXBHRBU5kWzo/Le51gnu47aAMj1SaoUXs/WOJapbjdeLdC', 1, null, '2019-02-19 03:43:35', '2019-02-19 03:43:35'), " +
+                        " (90, '0503200500547', '0503200500547', 'Doris Arely', 'Gomez Marcos', 1, '0', 'NA', '$2y$10$aMOFHvFePYE/bb.cqKRhhebB/VCiet6pCntY1fDXhhrni/065E3ee', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36'), " +
+                        " (91, '0105200200953', '0105200200953', 'Emy Lohany', 'Hernandez Martinez', 1, '0', 'NA', '$2y$10$QXfiJ9/1v55azZmhqasAjuzGi5f4zNB07pqlXxG0cvlkmOp0pmfCK', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36'), " +
+                        " (92, '0105200300486', '0105200300486', 'Greisy Mayeli', 'Garcia Funez', 1, '0', 'NA', '$2y$10$EEQ.iTR5dp8F1p4NoFYj5.eveSUnbHvSOz0nAId.ED638.cpmkv6W', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36'), " +
+                        " (96, '0105200300395', '0105200300395', 'Katherin Yessenia', 'Montufar Lainez', 1, '0', 'NA', '$2y$10$M87JnGP1kNWLDNgQL2cFoOdIaCAdRym5JELtIETAMoIbma3GnvU3W', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36')," +
+                        " (97, '0103200300128', '0103200300128', 'Kenia Liliana', 'Cornejo Mejia', 1, '0', 'NA', '$2y$10$Ah4y6NYMJ.9KfSzHU4oUu.wB2BeQhgf/sGOYPhjYHz0gQSoK2DlFu', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36')," +
+                        " (98, '0501200304116', '0501200304116', 'Kerlin Jasmin', 'Portillo Santos', 1, '0', 'NA', '$2y$10$4V/K8fYmhWTlRgDjrlAK2ObdosKJ5wsxsIa0PvytvCxqEY.c/K2DS', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36')," +
+                        " (100, '0313199900465', '0313199900465', 'Marlly Sicela', 'Palma Madrid', 1, '0', 'NA', '$2y$10$D7/TJhamVCdz.1KLzqv7WOpCXN6yTItv1OF5WxD9ZKtB7x7MTpNGu', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36'), " +
+                        " (101, '0105200400437', '0105200400437', 'Mayra Francheska', 'Funez Orellana', 1, '0', 'NA', '$2y$10$1FCevBVxOOwGjQNcFvZm0ukTFJBl6YZ3WhK/qlL/AAL8yljW3d9US', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36'), " +
+                        " (102, '0103200800206', '0103200800206', 'Meidy Elisa', 'Rivas Villalovo', 1, '0', 'NA', '$2y$10$pU6MKAvVagCoEM2a8KHjwO5VTU1iCSqA8PNvrzlZC7YdbkCoWN7Ei', 1, null, '2019-02-19 03:43:36', '2019-02-19 03:43:36'), " +
+                        " (104, '0105200300445', '0105200300445', 'Axel Alberto', 'Martinez Arriaga', 2, '0', 'NA', '$2y$10$tKPFUPkYFQomo.4saZxAEO5V1.gsRGLJFQFuCXiW7ztXKo/vmDaGG', 1, null, '2019-02-19 03:43:37', '2019-02-21 04:06:09'), " +
+                        " (106, '0105200400334', '0105200400334', 'Francisco Javier', 'Fernandez Mejia', 2, '0', 'NA', '$2y$10$sZsZBlhfVJapNammffXj2epqRE0PDHEui4kCKjTFClyanTBMo4dly', 1, null, '2019-02-19 03:43:37', '2019-02-21 04:06:15'), " +
+                        " (113, '0105200200360', '0105200200360', 'Stiven Imanol', 'Amaya Cuaresma', 2, 'NA', 'NA', '$2y$10$EjdpjmgAjjt99HINowYmSejZQmG/CCcj8vWgiLBe1WuybL5Wmcw0W', 1, null, '2019-02-20 23:01:12', '2019-02-21 04:06:26'), " +
+                        " (227, '0210199900959', '0210199900959', 'Dunia Arasely', 'Milla Peralta', 1, 'NA', 'NA', '$2y$10$c2yjewwdjMYCKXI3EsV22eAAetwAZ6H22IUFctatwMIn.hKlh7PBK', 1, null, '2020-04-27 01:50:20', '2020-04-27 01:50:20'), " +
+                        " (228, '0209200301500', '0209200301500', 'Heydi Yaritza', 'Guerra Garza', 1, 'NA', 'NA', '$2y$10$JV3Al9Wj5brTz5dTwfsa5u1ZJCT79EHoydLqgb.OLOGlGiO/mLvz2', 1, null, '2020-04-27 01:50:20', '2020-04-27 01:50:20'), " +
+                        " (229, '0103200500340', '0103200500340', 'Josary Nicol', 'Granados Perez', 1, 'NA', 'NA', '$2y$10$31JsX.vLYbD0I4MAD1pxVe2KZN8Gu419R/eVT7xCS3CPT8Ntreu9u', 1, null, '2020-04-27 01:50:20', '2020-04-27 01:50:20'), " +
+                        " (230, '0105200501051', '0105200501051', 'Katherine Paoly', 'Caceres Antunez', 1, 'NA', 'NA', '$2y$10$oPseBlQU3K5Pp67HODMxFeKyWT93Sg356B9Q0i3HXQGtrrbE16ubi', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (231, '0105200400917', '0105200400917', 'Mindy Alexa', 'Umanzor Castro', 1, 'NA', 'NA', '$2y$10$pDlPwSmcgmba8ufBiatc4OMhVABU/trfTQiG2.bPn8q88cMNcyVie', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (232, '0511200400507', '0511200400507', 'Scarleth Michell', 'Rivera Castellanos', 1, 'NA', 'NA', '$2y$10$3gS7mTJIpDXo3DLw0azaVuG2POuo0W6p8F//m8nDXhSc2w0KaJ.s.', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (233, '0107200500237', '0107200500237', 'Sonia Nicolle', 'Flores Funez', 1, 'NA', 'NA', '$2y$10$RjL0QXSBewLUZUHzIPW6/Ohf70U5dgffCSrx19mxS5mWvDUa61Js2', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (234, '0103200400349', '0103200400349', 'Tania Lizeth', 'Canales Baquedano', 1, 'NA', 'NA', '$2y$10$eFUWpvtGKinbqZOAVfPaPOf0LjewNFjtZzsOTCaq7ZnKQ77.NifHm', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (235, '0105200400091', '0105200400091', 'Yohely Estefania', 'Santos Nuñez', 1, 'NA', 'NA', '$2y$10$39liVVdsE2R8QxlfHZrkQeCqbHeb1qZhBUMQnt2aIZ.xCBeTrve1e', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (236, '0108200400050', '0108200400050', 'Jose David', 'Hernandez Hernandez', 1, 'NA', 'NA', '$2y$10$0zAzal0kNom0hePnGx1vOegkLG11pb9tKPEyDNQaRAS.28IBDXHXm', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (237, '0103200400117', '0103200400117', 'Juan Carlos', 'De Dios Mejia', 1, 'NA', 'NA', '$2y$10$43x6yo7XSm.sfO7GXfQBRuE4mYhruWlBEQAWySmQy4P1yQJyH.Iay', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (238, '0103200200337', '0103200200337', 'Kevin Josue', 'Granados Colindres', 1, 'NA', 'NA', '$2y$10$Hx4EiSDN5mRB2tOkVECJrO5NqQZL8HaRMgueifGzX1w8uidiv6md2', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (239, '0103200400165', '0103200400165', 'Marcio Javier', 'De Dios Mejia', 1, 'NA', 'NA', '$2y$10$bzdMkJqtLSjr.ED0mrcLReFGWjEZqrKQxdBD65D.nYRzgGDnuqmMO', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (240, '0502200401966', '0502200401966', 'Meyfran Joseph', 'Villanueva Campos', 1, 'NA', 'NA', '$2y$10$RmX.3x0peRza4s7JTGmZWO9w9r.K2XLl9aVMB8j8CEilZIcWNgUFK', 1, null, '2020-04-27 01:50:21', '2020-04-27 01:50:21'), " +
+                        " (241, '0101200100741', '0101200100741', 'Genesis Sarahi', 'Lopez Pagoada', 1, 'NA', 'NA', '$2y$10$3YrZMWTjCwWjs1dr1e3iwu1BfD1vqSmi3TXtfMFR1dq3Vq2aAW8c.', 1, null, '2020-04-27 01:53:10', '2020-04-27 01:53:10') ";
+
+        db.execSQL(sql);
+
     }
 
 }

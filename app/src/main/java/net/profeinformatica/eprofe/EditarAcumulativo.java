@@ -9,12 +9,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.drawable.DrawableCompat;
-
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -28,7 +22,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
@@ -49,6 +42,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 public class EditarAcumulativo extends AppCompatActivity {
 
@@ -463,7 +461,6 @@ public class EditarAcumulativo extends AppCompatActivity {
                                 String date = df.format(Calendar.getInstance().getTime());
 
                                 acumulativo.setUpdatedAt(date);
-                                acumulativo.setSicronizadoServidor(2);
 
                                 acumulativosDao.actualizar(acumulativo);
 

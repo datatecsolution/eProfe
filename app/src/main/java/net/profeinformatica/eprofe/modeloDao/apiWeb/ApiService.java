@@ -1,9 +1,6 @@
 package net.profeinformatica.eprofe.modeloDao.apiWeb;
 
 
-
-import android.content.Intent;
-
 import net.profeinformatica.eprofe.modelo.Acumulativo;
 import net.profeinformatica.eprofe.modelo.Alumno;
 import net.profeinformatica.eprofe.modelo.Asignatura;
@@ -16,7 +13,6 @@ import net.profeinformatica.eprofe.modelo.Periodo;
 import net.profeinformatica.eprofe.modelo.Seccion;
 import net.profeinformatica.eprofe.modelo.TipoAcumulativo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.http.Body;

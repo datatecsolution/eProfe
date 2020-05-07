@@ -4,9 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,8 +11,6 @@ import android.widget.Spinner;
 
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.resources.MaterialResources;
-
 
 import net.profeinformatica.eprofe.adapter.AdapterAsignaturaSeccion;
 import net.profeinformatica.eprofe.adapter.AdapterSeccion;
@@ -27,6 +22,9 @@ import net.profeinformatica.eprofe.modeloDao.SeccionDao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class SelectAsignaturaAcumulativo extends AppCompatActivity {
    // private ApiService mAPIService;

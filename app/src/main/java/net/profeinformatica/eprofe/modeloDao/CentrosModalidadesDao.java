@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Seccion;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class CentrosModalidadesDao extends ModeloDaoBasic {
     private Seccion seccionLocal=null;
-    protected CentrosModalidadesDao() {
+    public CentrosModalidadesDao() {
     }
 
     @Override
@@ -130,6 +129,22 @@ public class CentrosModalidadesDao extends ModeloDaoBasic {
     @Override
     public int getGeneratedKeys() {
         return 0;
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+        String sql="INSERT INTO centros_modalidades (id, centro_id, modalidad_id, created_at, updated_at) VALUES (10, 2, 1, '2020-05-06 00:28:34', '2020-05-06 00:28:34')";
+
+        db.execSQL(sql);
+
+
+
+
     }
 
 }

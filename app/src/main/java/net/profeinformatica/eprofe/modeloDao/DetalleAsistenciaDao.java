@@ -323,7 +323,7 @@ public class DetalleAsistenciaDao extends ModeloDaoBasic {
 
 
         // Filter results WHERE "title" = 'My Title'
-        String selection = eProfContract.DetallesAsistenciasTable.COLUMN_NAME_ENCABEZADOASISTENCIA_MOIVIL_ID + " = ? and"
+        String selection = eProfContract.DetallesAsistenciasTable.COLUMN_NAME_ENCABEZADOASISTENCIA_MOIVIL_ID + " = ? and "
                             +eProfContract.DetallesAsistenciasTable.COLUMN_NAME_SINCRONIZACION_SERVER+" <>3 ";
         String[] selectionArgs = { ""+idEncabezado };
 

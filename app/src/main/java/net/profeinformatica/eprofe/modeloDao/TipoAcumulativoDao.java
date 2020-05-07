@@ -292,4 +292,23 @@ public class TipoAcumulativoDao extends ModeloDaoBasic{
     public int getGeneratedKeys() {
         return 0;
     }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String sql="INSERT INTO " +
+                            " tipoacumulativos (id, descripcion, created_at, updated_at) " +
+                        " VALUES " +
+                            " (1, 'Tareas Clase', '2018-07-23 12:34:41', '2018-07-23 12:34:44'), " +
+                            " (2, 'Tareas Casa', '2018-07-23 12:34:58', '2018-07-23 12:35:02'), " +
+                            " (3, 'Examen', '2018-07-23 12:35:12', '2018-07-23 12:35:14')";
+        db.execSQL(sql);
+
+
+
+
+    }
 }

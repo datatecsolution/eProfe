@@ -25,6 +25,12 @@
             android:layout_height="wrap_content"
             android:text="Sincronizar SACE" />
 
+        <Button
+            android:id="@+id/btnDatosPruebas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SET DATOS DE PRUEBA" />
+
         <ListView
             android:id="@+id/lvSecciones"
             android:layout_width="match_parent"

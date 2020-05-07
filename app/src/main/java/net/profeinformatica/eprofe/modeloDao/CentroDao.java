@@ -4,15 +4,13 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import androidx.annotation.Nullable;
-
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Centro;
 
 import java.util.List;
 
 public class CentroDao extends ModeloDaoBasic {
-    protected CentroDao() {
+    public CentroDao() {
     }
 
     @Override
@@ -196,6 +194,22 @@ public class CentroDao extends ModeloDaoBasic {
     @Override
     public int getGeneratedKeys() {
         return 0;
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+        String sql="INSERT INTO centros (id, nombre, codigo_sace, direccion, telefono, remember_token, created_at, updated_at) VALUES (2, 'MARCELINO PONCE MARTINEZ', '010500057M04', 'NA', 'NA', null, '2019-02-01 05:26:22', '2019-02-01 05:26:22')";
+
+        db.execSQL(sql);
+
+
+
+
     }
 
 }

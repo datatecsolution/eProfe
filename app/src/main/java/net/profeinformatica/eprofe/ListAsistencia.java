@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,16 +11,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 
-
 import net.profeinformatica.eprofe.adapter.AdapterAsistencia;
 import net.profeinformatica.eprofe.adapter.AdapterSeccion;
-import net.profeinformatica.eprofe.adapter.AdapterSeccionSimple;
 import net.profeinformatica.eprofe.modelo.EncabezadoAsistencia;
 import net.profeinformatica.eprofe.modelo.Seccion;
 import net.profeinformatica.eprofe.modeloDao.EncabezadoAsistenciaDao;
@@ -31,6 +26,9 @@ import net.profeinformatica.eprofe.modeloDao.SeccionDao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ListAsistencia extends AppCompatActivity {
 
@@ -116,8 +114,6 @@ public class ListAsistencia extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, final int index) {
                 switch (index) {
                     case 0:
-
-
 
                         encabezadoAsistenciaDao.eliminar(adapterAsistencia.getItem(position));
 

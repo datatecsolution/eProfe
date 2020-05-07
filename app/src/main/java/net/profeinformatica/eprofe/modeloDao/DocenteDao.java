@@ -6,8 +6,14 @@ import android.database.sqlite.SQLiteDatabase;
 
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Docente;
+import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiService;
+import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiUtils;
 
 import java.util.List;
+
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class DocenteDao extends ModeloDaoBasic {
 
@@ -36,6 +42,11 @@ public class DocenteDao extends ModeloDaoBasic {
         values.put(eProfContract.DocentesTable.COLUMN_NAME_TELEFONO,myDocente.getTelefono());
         values.put(eProfContract.DocentesTable.COLUMN_NAME_EMAIL,myDocente.getEmail());
         values.put(eProfContract.DocentesTable.COLUMN_NAME_GENERO, myDocente.getGenero());
+        values.put(eProfContract.DocentesTable.COLUMN_NAME_SINCRONIZACIONSERVER, true);
+        values.put(eProfContract.DocentesTable.COLUMN_NAME_UPDATEDAT, myDocente.getUpdatedAt());
+        values.put(eProfContract.DocentesTable.COLUMN_NAME_CREATEDAT, myDocente.getCreatedAt());
+        values.put(eProfContract.DocentesTable.COLUMN_NAME_REMEMBERTOKEN, myDocente.getRememberToken());
+        values.put(eProfContract.DocentesTable.COLUMN_NAME_USERNAME, myDocente.getUsername());
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(eProfContract.DocentesTable.TABLE_NAME, null, values);
 
@@ -150,17 +161,108 @@ public class DocenteDao extends ModeloDaoBasic {
 
     @Override
     public int sincronizarBDlocal(Object c) {
-        return 0;
+        //0=no accion, 1=guardar, 2 =actualizar
+        int resultado=0;
+        Docente docente=(Docente)c;
+        Docente docenteOnDB=buscarPorId(docente.getId());
+
+        if (docenteOnDB.getId()==-1){
+            if(registrar(docente)){
+                resultado=1;
+                docente.setId(getGeneratedKeys());
+                ModeloDaoBasic.setDocente(docente);
+            }
+        }else{
+            docente.setId(docenteOnDB.getId());
+            if (actualizar(docente)){
+                resultado=2;
+            }
+        }
+        return resultado;
     }
 
     @Override
     public boolean sincronizarServidor(Object c) {
+
+        Docente myDocente=(Docente)c;
+
+        ApiService mAPIService = ApiUtils.getApiService();
+
+        mAPIService.saveDocente(myDocente.getNombre(), myDocente.getApellido(),
+                myDocente.getGenero(), myDocente.getDireccion(),
+                myDocente.getUserSace(), myDocente.getPasswordSace(),
+                myDocente.getEmail(), myDocente.getTelefono())
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Docente>() {
+                    @Override
+                    public void onCompleted() {
+                       //
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                       // progressDoalog2.dismiss();
+
+                    }
+
+                    @Override
+                    public void onNext(Docente docente) {
+                       // myDocente.setId(docente.getId());
+
+                        //setPrefencias();
+                        if(docente!=null){
+                            sincronizarBDlocal(docente);
+                        }
+
+
+                    }
+                });
         return false;
     }
 
     @Override
     public int getGeneratedKeys() {
-        return 0;
+
+        int key=0;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String query = "SELECT seq FROM SQLITE_SEQUENCE where name=?";
+
+        String[] selectionArgs = {eProfContract.DocentesTable.TABLE_NAME};
+
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        if (cursor.moveToFirst()){
+            do{
+
+                key=cursor.getInt(cursor.getColumnIndex("seq"));
+
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        if(key!=0)
+            return key;
+        else
+            return 0;
     }
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+        String sql="INSERT INTO docentes (id, username, nombre, apellido, genero, direccion, user_sace, password_sace, telefono, email, password, sincronizar_servidor, remember_token, created_at, updated_at) VALUES (1, 'jdmayorga', 'David', 'Mayorga', 2, 'barrio suyapa San Juan Pueblo', '01051986004177011', null, '98837876', 'jose.david.mayorga@yahoo.com', null, 1, null, '2019-02-09 00:42:45', '2020-05-07 00:21:40')";
+
+        db.execSQL(sql);
+
+
+
+
+    }
+
 
 }

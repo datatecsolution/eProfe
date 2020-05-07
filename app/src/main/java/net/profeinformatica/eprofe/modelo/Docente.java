@@ -12,7 +12,7 @@ public class Docente {
     private Integer id;
     @SerializedName("username")
     @Expose
-    private String username;
+    private String username="NA";
     @SerializedName("nombre")
     @Expose
     private String nombre;
@@ -36,7 +36,7 @@ public class Docente {
     private String userSace;
     @SerializedName("password_sace")
     @Expose
-    private String passwordSace;
+    private String passwordSace="NA";
     @SerializedName("email")
     @Expose
     private String email;
@@ -45,13 +45,13 @@ public class Docente {
     private String password;
     @SerializedName("remember_token")
     @Expose
-    private String rememberToken;
+    private String rememberToken="NA";
     @SerializedName("created_at")
     @Expose
-    private String createdAt;
+    private String createdAt="NA";
     @SerializedName("updated_at")
     @Expose
-    private String updatedAt;
+    private String updatedAt="NA";
     @SerializedName("asignaturas")
     @Expose
     private List<Asignatura> asignaturas = null;

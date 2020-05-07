@@ -4,8 +4,9 @@ package net.profeinformatica.eprofe.modeloDao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
-
+import net.profeinformatica.eprofe.MenuPrincipal;
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Docente;
 import net.profeinformatica.eprofe.modelo.Seccion;
@@ -277,7 +278,8 @@ public class SeccionDao extends ModeloDaoBasic {
 
                     @Override
                     public void onError(Throwable e) {
-                        System.out.println(new String("Error en el sevidor remoto========>>>>>" + e.getLocalizedMessage()));
+                        Toast.makeText(MenuPrincipal.getContext(), "Error al sincronizar las secciones con el servidor:\n"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        System.out.println(new String("Error al sincronizar las secciones con el servidor:========>>>>>" + e.getMessage()));
 
                     }
 
@@ -298,8 +300,11 @@ public class SeccionDao extends ModeloDaoBasic {
 
 
                                 asignaturaDao.sincronizarServidor(seccions.get(i));
+
                                 alumnoDao.sincronizarServidor(seccions.get(i));
+
                                 encabezadoAsistenciaDao.sincronizarServidor(seccions.get(i));
+
                                 acumulativoDao.sincronizarServidor(seccions.get(i));
 
                             }
@@ -384,6 +389,25 @@ public class SeccionDao extends ModeloDaoBasic {
         }
 
         return resultado;
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String sql="INSERT INTO " +
+                        " seccions (id, modalidad_id, curso, seccion, jornada, centro_id, periodo_id, sincronizar_servidor, created_at, updated_at) " +
+                    " VALUES " +
+                        " (10, 1, 'ONCEAVO', '1', 'JORNADA DOBLE', 2, 3, 1, '2020-05-06 00:28:34', '2020-05-06 00:28:34'), " +
+                        " (11, 1, 'DOCEAVO', '1', 'JORNADA DOBLE', 2, 3, 1, '2020-05-06 00:28:34', '2020-05-06 00:28:34')";
+
+        db.execSQL(sql);
+
+
+
+
     }
 
 

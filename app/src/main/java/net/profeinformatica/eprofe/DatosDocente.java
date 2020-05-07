@@ -1,28 +1,22 @@
 package net.profeinformatica.eprofe;
 
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 import net.profeinformatica.eprofe.modelo.Docente;
+import net.profeinformatica.eprofe.modeloDao.DocenteDao;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiService;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiUtils;
-import net.profeinformatica.eprofe.modeloDao.DocenteDao;
 
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class DatosDocente extends AppCompatActivity {
 
@@ -135,7 +129,7 @@ public class DatosDocente extends AppCompatActivity {
 
 
 
-        if(this.edicion==true){
+        if(edicion==true){
             docenteDao.actualizar(myDocente);
             Toast.makeText(getApplicationContext(), "Se actualizo los datos del docente", Toast.LENGTH_LONG).show();
 
@@ -177,16 +171,20 @@ public class DatosDocente extends AppCompatActivity {
                 //Toast.makeText(this,"Se mando a guardar los datos",Toast.LENGTH_SHORT);
 
                 if(etNombre.getEditText().getText().toString().length() == 0 ) {
-
-                    etNombre.setError("El campo descripcion no puedo quedar en vacio");
+                    etNombre.setError("El campo no puedo quedar en vacio");
                 }else if(etApellido.getEditText().getText().toString().length() == 0){
-
-                    etApellido.setError("El campo descripcion no puedo quedar en vacio");
-
-                }else if(etPwdSace.getEditText().getText().length() == 0) {
-                    etPwdSace.setError("El campo descripcion no puedo quedar en vacio");
+                    etApellido.setError("El campo no puedo quedar en vacio");
+                    etNombre.setError(null);
+                }else if(etCodigoSace.toString().length() == 0){
+                    etCodigoSace.setError("El campo no puedo quedar en vacio");
+                    etApellido.setError(null);
+                }
+                else if(etPwdSace.getEditText().getText().length() == 0) {
+                    etPwdSace.setError("El campo no puedo quedar en vacio");
+                    etCodigoSace.setError(null);
                 }else if(etTelefono.getEditText().getText().length() == 0) {
-                    etTelefono.setError("El campo descripcion no puedo quedar en vacio");
+                    etTelefono.setError("El campo no puedo quedar en vacio");
+                    etTelefono.setError(null);
                 }else{
 
 
@@ -205,38 +203,9 @@ public class DatosDocente extends AppCompatActivity {
                         myDocente.setGenero(2);
                     }
 
-
-                    final ProgressDialog progressDoalog2;
-                    progressDoalog2 = new ProgressDialog(this);
-                    progressDoalog2.setMax(100);
-                    progressDoalog2.show();
-
-                    mAPIService.saveDocente(myDocente.getNombre(), myDocente.getApellido(),
-                            myDocente.getGenero(), myDocente.getDireccion(),
-                            myDocente.getUserSace(), myDocente.getPasswordSace(),
-                            myDocente.getEmail(), myDocente.getTelefono())
-                            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(new Observer<Docente>() {
-                                @Override
-                                public void onCompleted() {
-                                    progressDoalog2.dismiss();
-
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-                                    progressDoalog2.dismiss();
-
-                                }
-
-                                @Override
-                                public void onNext(Docente docente) {
-                                    myDocente.setId(docente.getId());
-                                    setPrefencias();
+                    docenteDao.sincronizarServidor(myDocente);
 
 
-                                }
-                            });
                 }
 
 

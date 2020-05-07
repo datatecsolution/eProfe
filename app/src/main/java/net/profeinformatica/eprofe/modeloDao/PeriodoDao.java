@@ -6,10 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Periodo;
+
 import java.util.List;
 
 public class PeriodoDao extends ModeloDaoBasic {
-    protected PeriodoDao() {
+    public PeriodoDao() {
     }
 
     @Override
@@ -186,6 +187,20 @@ public class PeriodoDao extends ModeloDaoBasic {
     @Override
     public int getGeneratedKeys() {
         return 0;
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String sql="INSERT INTO periodos (id, fecha_inicio, fecha_final, estado, observaciones, created_at, updated_at) VALUES (3, '2020-02-01', '2020-11-30', 1, 'NA', '2020-05-05 17:33:47', '2020-05-05 17:33:56')";
+        db.execSQL(sql);
+
+
+
+
     }
 
 

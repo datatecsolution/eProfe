@@ -2,7 +2,6 @@ package net.profeinformatica.eprofe.adapter;
 
 import android.content.Context;
 import android.os.Environment;
-import androidx.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.squareup.picasso.Picasso;
 
@@ -25,6 +23,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class AdapterAlumnoAcumulativo extends ArrayAdapter<NotaAcumulativo> {
 

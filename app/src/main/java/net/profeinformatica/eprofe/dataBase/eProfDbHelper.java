@@ -3,7 +3,6 @@ package net.profeinformatica.eprofe.dataBase;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
 
 import net.profeinformatica.eprofe.MenuPrincipal;
 

@@ -6,10 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 
 import net.profeinformatica.eprofe.dataBase.eProfContract;
@@ -18,6 +14,10 @@ import net.profeinformatica.eprofe.modeloDao.DocenteDao;
 import net.profeinformatica.eprofe.modeloDao.ModeloDaoBasic;
 
 import java.io.File;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 public class MenuPrincipal extends AppCompatActivity {
 

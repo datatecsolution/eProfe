@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Acumulativo;
 import net.profeinformatica.eprofe.modelo.Alumno;
-import net.profeinformatica.eprofe.modelo.EncabezadoAsistencia;
 import net.profeinformatica.eprofe.modelo.NotaAcumulativo;
 
 import java.util.ArrayList;

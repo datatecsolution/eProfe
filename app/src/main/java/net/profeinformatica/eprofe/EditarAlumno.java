@@ -11,30 +11,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import androidx.annotation.NonNull;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.google.android.material.textfield.TextInputLayout;
-import com.squareup.picasso.Picasso;
 
 import net.profeinformatica.eprofe.modelo.Alumno;
 import net.profeinformatica.eprofe.modelo.Matricula;
 import net.profeinformatica.eprofe.modelo.Seccion;
 import net.profeinformatica.eprofe.modeloDao.AlumnoDao;
+import net.profeinformatica.eprofe.OnSwipeTouchListener;
+import net.profeinformatica.eprofe.R;
 import net.profeinformatica.eprofe.modeloDao.MatriculaDao;
 
 import java.io.File;
@@ -43,6 +34,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 public class EditarAlumno extends AppCompatActivity {
 
@@ -122,8 +121,12 @@ public class EditarAlumno extends AppCompatActivity {
         if(matriculas!=null) {
             for (int x = 0; x < matriculas.size(); x++) {
 
+
+
                 Alumno alum =alumnoDao.buscarPorId(matriculas.get(x).getAlumnoId());
-                if(alum!=null)
+                if(alum!=null || alum.getId()!=-1)
+                    System.out.println(new String("Matriculas:===============>"+matriculas.get(x).toString()));
+                System.out.println(new String("Alumno:===============>"+alum.toString()));
                    alumnos.add(alum);
 
 

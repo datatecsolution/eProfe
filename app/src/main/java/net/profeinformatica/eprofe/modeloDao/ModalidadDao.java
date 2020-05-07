@@ -177,4 +177,19 @@ public class ModalidadDao extends ModeloDaoBasic {
         return 0;
     }
 
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String sql="INSERT INTO modalidades (id, alias, nombre, observaciones, created_at, updated_at) VALUES (1, 'BTPI', 'Bachillerato Tecnico Profesional en Informatica', 'II anio', '2018-07-23 12:30:06', '2018-07-23 12:30:09')";
+
+        db.execSQL(sql);
+
+
+
+
+    }
+
 }

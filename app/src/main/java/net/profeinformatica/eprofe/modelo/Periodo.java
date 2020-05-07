@@ -3,8 +3,6 @@ package net.profeinformatica.eprofe.modelo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
 public class Periodo {
 
     @SerializedName("id")

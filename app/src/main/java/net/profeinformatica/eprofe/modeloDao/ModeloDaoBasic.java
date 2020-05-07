@@ -1,7 +1,5 @@
 package net.profeinformatica.eprofe.modeloDao;
 
-import android.content.Context;
-
 import net.profeinformatica.eprofe.dataBase.eProfDbHelper;
 import net.profeinformatica.eprofe.modelo.Docente;
 

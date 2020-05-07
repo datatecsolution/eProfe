@@ -1,7 +1,6 @@
 package net.profeinformatica.eprofe.adapter;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -15,11 +14,12 @@ import net.profeinformatica.eprofe.R;
 import net.profeinformatica.eprofe.modelo.NotaAcumulativo;
 import net.profeinformatica.eprofe.modeloDao.NotaAcumulativosDao;
 
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class AdapterAcumulativoNota extends ArrayAdapter<NotaAcumulativo> {
 

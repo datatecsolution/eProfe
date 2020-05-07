@@ -5,12 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
-
-import com.squareup.picasso.Picasso;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import net.profeinformatica.eprofe.adapter.AdapterAcumulativoNota;
 import net.profeinformatica.eprofe.modelo.Alumno;
@@ -37,6 +33,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class EditarNotasAlumnoAsignaturaP extends AppCompatActivity {
 

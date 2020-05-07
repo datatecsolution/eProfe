@@ -1,7 +1,6 @@
 package net.profeinformatica.eprofe.adapter;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,8 @@ import net.profeinformatica.eprofe.R;
 import net.profeinformatica.eprofe.modelo.Asignatura;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class AdapterAsignaturaBuscar extends ArrayAdapter<Asignatura> {
 

@@ -1,7 +1,6 @@
 package net.profeinformatica.eprofe.modeloDao;
 
 import android.content.ContentValues;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class CentroDocenteDao extends ModeloDaoBasic {
     private Seccion seccionLocal=null;
-    protected CentroDocenteDao() {
+    public CentroDocenteDao() {
     }
 
     @Override
@@ -128,6 +127,22 @@ public class CentroDocenteDao extends ModeloDaoBasic {
     @Override
     public int getGeneratedKeys() {
         return 0;
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+        String sql="INSERT INTO centro_docente (id, docente_id, centro_id, created_at, updated_at) VALUES (10, 1, 2, '2020-05-06 00:28:34', '2020-05-06 00:28:34')";
+
+        db.execSQL(sql);
+
+
+
+
     }
 
 }

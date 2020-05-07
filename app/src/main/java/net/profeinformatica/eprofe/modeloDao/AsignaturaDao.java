@@ -4,10 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Asignatura;
-import net.profeinformatica.eprofe.modelo.EncabezadoAsistencia;
 import net.profeinformatica.eprofe.modelo.Seccion;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiService;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiUtils;
@@ -316,6 +314,43 @@ public class AsignaturaDao extends ModeloDaoBasic {
             return asignaturas;
         else
             return null;
+
+    }
+
+    public void setDatosPrueba(){
+
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+        String sql="INSERT INTO " +
+                        " asignaturas (id, alias, nombre, tipo, created_at, updated_at) " +
+                    " VALUES " +
+                        " (4, 'NA', 'PROGRAMACIÓN III', '1', null, null), " +
+                        " (5, 'NA', 'REDES INFORMÁTICAS I', '1', null, null), " +
+                        " (7, 'NA', 'LABORATORIO DE INFORMÁTICA I', '1', null, null), " +
+                        " (9, 'NA', 'DISEÑO WEB I', '1', null, null), " +
+                        " (10, 'NA', 'LABORATORIO DE INFORMÁTICA III', '1', null, null), " +
+                        " (12, 'NA', 'MANTENIMIENTO Y REPARACIÓN I', '1', null, null), " +
+                        " (16, 'NA', 'PROGRAMACIÓN I', '1', null, null) ";
+
+        db.execSQL(sql);
+
+        String sql2="INSERT INTO " +
+                            " asignaturas_secciones (asignatura_id, seccion_id, docente_id) " +
+                    " VALUES " +
+                        " (7, 10, 1), " +
+                        " (16, 10, 1), " +
+                        " (9, 11, 1), " +
+                        " (10, 11, 1), " +
+                        " (12, 11, 1), " +
+                        " (4, 11, 1), " +
+                        " (5, 11, 1)";
+
+        db.execSQL(sql2);
+
+
 
     }
 

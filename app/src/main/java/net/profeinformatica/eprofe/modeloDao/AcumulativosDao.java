@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import net.profeinformatica.eprofe.dataBase.eProfContract;
 import net.profeinformatica.eprofe.modelo.Acumulativo;
 import net.profeinformatica.eprofe.modelo.Asignatura;
-import net.profeinformatica.eprofe.modelo.EncabezadoAsistencia;
 import net.profeinformatica.eprofe.modelo.NotaAcumulativo;
 import net.profeinformatica.eprofe.modelo.Seccion;
 import net.profeinformatica.eprofe.modelo.TipoAcumulativo;
@@ -373,9 +372,6 @@ public class AcumulativosDao extends ModeloDaoBasic {
 
                         if(acumulativos!=null){
                             for (int i = 0; i < acumulativos.size(); i++) {
-
-
-                                acumulativos.get(i).setSicronizadoServidor(1);
 
                                 //se manda sincronizar con la base de datos local
                                 int resul=sincronizarBDlocal(acumulativos.get(i));

@@ -198,7 +198,7 @@ public class EncabezadoAsistenciaDao extends ModeloDaoBasic {
                     " ON " +eProfContract.EncabezadoAsistenciasTable.TABLE_NAME+"."+eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_ASIGNATURAID+" = "+eProfContract.AsignaturasSeccionesTable.TABLE_NAME+"." +eProfContract.AsignaturasSeccionesTable.COLUMN_NAME_ASIGNATURAID
                 +" WHERE "+eProfContract.AsignaturasSeccionesTable.TABLE_NAME+"."+eProfContract.AsignaturasSeccionesTable.COLUMN_NAME_DOCENTEID+"=? and " +
                 eProfContract.EncabezadoAsistenciasTable.TABLE_NAME+"."+eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_SECCIONID+"=? and "+
-                eProfContract.EncabezadoAsistenciasTable.TABLE_NAME+"."+eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_SINCRONIZACIONSERVER+"<>3";
+                eProfContract.EncabezadoAsistenciasTable.TABLE_NAME+"."+eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_SINCRONIZACIONSERVER+"<>3 order by "+eProfContract.EncabezadoAsistenciasTable.TABLE_NAME+"."+eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_MOVILID+" desc";
 
 
 
@@ -274,7 +274,7 @@ public class EncabezadoAsistenciaDao extends ModeloDaoBasic {
 
 
         // Filter results WHERE "title" = 'My Title'
-        String selection = eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_MOVILID + " = ? and"
+        String selection = eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_MOVILID + " = ? and "
                             +eProfContract.EncabezadoAsistenciasTable.TABLE_NAME+"."+eProfContract.EncabezadoAsistenciasTable.COLUMN_NAME_SINCRONIZACIONSERVER+"<>3";
         String[] selectionArgs = { ""+id };
 
@@ -459,8 +459,6 @@ public class EncabezadoAsistenciaDao extends ModeloDaoBasic {
                                 int resul=sincronizarBDlocal(encabezadoAsistencias.get(i));
 
                                 if(resul!=0 && encabezadoAsistencias.get(i).getDetallesAsistencia()!=null){
-
-
 
                                     List<DetalleAsistencia> detalles=encabezadoAsistencias.get(i).getDetallesAsistencia();
 

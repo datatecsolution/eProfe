@@ -3,8 +3,6 @@ package net.profeinformatica.eprofe.modelo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import net.profeinformatica.eprofe.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

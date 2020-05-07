@@ -3,8 +3,6 @@ package net.profeinformatica.eprofe;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,14 +13,26 @@ import android.widget.Toast;
 
 import net.profeinformatica.eprofe.adapter.AdapterSeccionCentroPeriodo;
 import net.profeinformatica.eprofe.modelo.Seccion;
+import net.profeinformatica.eprofe.modeloDao.AlumnoDao;
+import net.profeinformatica.eprofe.modeloDao.AsignaturaDao;
+import net.profeinformatica.eprofe.modeloDao.CentroDao;
+import net.profeinformatica.eprofe.modeloDao.CentroDocenteDao;
+import net.profeinformatica.eprofe.modeloDao.CentrosModalidadesDao;
+import net.profeinformatica.eprofe.modeloDao.DocenteDao;
+import net.profeinformatica.eprofe.modeloDao.MatriculaDao;
+import net.profeinformatica.eprofe.modeloDao.ModalidadDao;
 import net.profeinformatica.eprofe.modeloDao.ModeloDaoBasic;
+import net.profeinformatica.eprofe.modeloDao.PeriodoDao;
 import net.profeinformatica.eprofe.modeloDao.SeccionDao;
+import net.profeinformatica.eprofe.modeloDao.TipoAcumulativoDao;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiService;
 import net.profeinformatica.eprofe.modeloDao.apiWeb.ApiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -37,6 +47,7 @@ public class SincronizarSace extends AppCompatActivity {
     private ListView lvSecciones;
     private Button btnSincronizarBD;
     private Button btnSincronizarSace;
+    private Button btnDatosPrueba;
     private List<Seccion> secciones=new ArrayList<Seccion>();
     private SeccionDao seccionDao=null;
 
@@ -54,6 +65,7 @@ public class SincronizarSace extends AppCompatActivity {
         lvSecciones =(ListView)findViewById(R.id.lvSecciones);
         btnSincronizarBD=(Button)findViewById(R.id.btnSincronizarBD);
         btnSincronizarSace=(Button)findViewById(R.id.btnSincronizarSACE);
+        btnDatosPrueba=(Button)findViewById(R.id.btnDatosPruebas);
 
 
         adapterSeccionCentroPeriodo=new AdapterSeccionCentroPeriodo(this,secciones);
@@ -77,6 +89,49 @@ public class SincronizarSace extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Se conectara a SACE para extraer sus alumnos", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        btnDatosPrueba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlumnoDao alumnoDao =new AlumnoDao();
+                alumnoDao.setDatosPrueba();
+
+                AsignaturaDao asignaturaDao=new AsignaturaDao();
+                asignaturaDao.setDatosPrueba();
+
+                CentroDao centroDao=new CentroDao();
+                centroDao.setDatosPrueba();
+
+                CentroDocenteDao centroDocenteDao=new CentroDocenteDao();
+                centroDocenteDao.setDatosPrueba();
+
+                CentrosModalidadesDao centrosModalidadesDao=new CentrosModalidadesDao();
+                centrosModalidadesDao.setDatosPrueba();
+
+                DocenteDao docenteDao=new DocenteDao();
+                docenteDao.setDatosPrueba();
+
+                MatriculaDao matriculaDao=new MatriculaDao();
+                matriculaDao.setDatosPrueba();
+
+                ModalidadDao modalidadDao=new ModalidadDao();
+                modalidadDao.setDatosPrueba();
+
+                PeriodoDao periodoDao=new PeriodoDao();
+                periodoDao.setDatosPrueba();
+
+                SeccionDao seccionDao=new SeccionDao();
+                seccionDao.setDatosPrueba();
+
+                TipoAcumulativoDao tipoAcumulativoDao=new TipoAcumulativoDao();
+                tipoAcumulativoDao.setDatosPrueba();
+
+                Toast.makeText(getApplicationContext(), "Se establecieron los datos de prueba, debe reiniciar la app para cargarlos.", Toast.LENGTH_SHORT).show();
+
+
+
 
             }
         });
